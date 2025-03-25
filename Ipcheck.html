@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Client's IP</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+
+        h1 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>GeeksforGeeks</h1>
+        <h3>Getting Client IP Address</h3>
+        <!-- <p id="ip-address"></p>
+        <p id="city-name"></p> -->
+    </div>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch the IP address from the API
+            fetch("https://ipinfo.io/json") 
+                .then(response => response.json())
+                .then(data => {
+                    const ip = data.ip;
+                    const city = data.city;
+                    // Display the IP address on the screen
+                    document.getElementById("ip-address").textContent = 
+                        `IP Address: ${ip}`;
+                    document.getElementById("city-name").textContent = 
+                        `city: ${city}`;
+                    // Make a request to the specific IP info URL
+                    const apiUrl = `https://ipinfo.io/${ip}?token=c0d1aa6dbcb9be`;
+                    console.log("IP Info URL:", apiUrl); // You can use this URL for further requests
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);
+                    document.getElementById("ip-address").textContent = 
+                        "Unable to retrieve IP address.";
+
+                });
+        });
+    </script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch the IP address and location data
+            fetch("https://ipinfo.io/json")
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.city; // Get city name
+                    
+                    // Display the city name
+                    document.getElementById("city-name").textContent = `City: ${city}`;
+    
+                    // Construct the new API URL with the retrieved city name
+                    const prayerApiUrl = `https://muslimsalat.com/${city}.json?key=12fac9c65f4b497000136b33427a3a13`;
+    
+                    // Fetch prayer times using the dynamic city
+                    fetch(prayerApiUrl)
+                        .then(response => response.json())
+                        .then(prayerData => {
+                            console.log("Prayer Times:", prayerData); // Log the data
+                            document.getElementById("prayer-times").textContent = 
+                                `Fajr: ${prayerData.items[0].fajr}, Dhuhr: ${prayerData.items[0].dhuhr}, 
+                                Asr: ${prayerData.items[0].asr}, Maghrib: ${prayerData.items[0].maghrib}, 
+                                Isha: ${prayerData.items[0].isha}`;
+                        })
+                        .catch(error => console.error("Error fetching prayer times:", error));
+                })
+                .catch(error => {
+                    console.error("Error fetching location:", error);
+                    document.getElementById("city-name").textContent = "Unable to retrieve city.";
+                });
+        });
+    </script>
+    
+    <!-- HTML Elements to display information -->
+    <div id="city-name"></div>
+    <div id="prayer-times"></div>
+    
+</body>
+
+</html>
