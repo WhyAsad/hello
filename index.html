@@ -5,96 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Image Layout</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .main-display {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            background-color: red;
-        }
-
-        .thumbnail {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .wa-chat-box-poweredby {
-            display: none !important;
-        }
-    </style>
-    <script>
-        var url = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?11257';
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = url;
-        var options = {
-            "enabled": true,
-            "chatButtonSetting": {
-                "backgroundColor": "#00e785",
-                "ctaText": "Chat with us",
-                "borderRadius": "25",
-                "marginLeft": "0",
-                "marginRight": "20",
-                "marginBottom": "20",
-                "ctaIconWATI": false,
-                "position": "right"
-            },
-            "brandSetting": {
-                "brandName": "The Premier Packaging",
-                "brandSubTitle": "undefined",
-                "brandImg": "images/Favicpn.png",
-                "welcomeText": "Hi there!\nHow can I help you?",
-                "messageText": "Hello, %0A I have a question about {{page_link}}",
-                "backgroundColor": "#00e785",
-                "ctaText": "Chat with us",
-                "borderRadius": "25",
-                "autoShow": false,
-                "phoneNumber": "923096618912"
-            }
-        };
-        s.onload = function () {
-            CreateWhatsappChatWidget(options);
-        };
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-    </script>
+    <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container mt-4">
         <div class="row">
-            <!-- Thumbnail Images on the Left -->
-            <div class="col-md-3">
-                <div class="d-flex flex-column">
-                    <img src="images/catog-1.webp" alt="Thumbnail 1" class="thumbnail mb-3"
-                        onclick="changeImage('images/catog-1.webp')">
-                    <img src="images/food.webp" alt="Thumbnail 2" class="thumbnail mb-3"
-                        onclick="changeImage('images/food.webp')">
-                    <img src="images/Rigid.webp" alt="Thumbnail 3" class="thumbnail mb-3"
-                        onclick="changeImage('images/Rigid.webp')">
-                    <img src="images/A-Journey-of-Anticipation.webp" alt="Thumbnail 4" class="thumbnail mb-3"
-                        onclick="changeImage('images/A-Journey-of-Anticipation.webp')">
-                </div>
-            </div>
-
-            <!-- Main Display Picture -->
-            <div class="col-md-9 text-center">
-                <img id="mainImage" src="images/food.webp" alt="Main Display" class="main-display">
-            </div>
+            <i class="ph ph-cube"></i>
         </div>
     </div>
-
-    <script>
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
